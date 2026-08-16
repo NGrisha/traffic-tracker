@@ -1,0 +1,9 @@
+.git
+.venv
+.env
+venv
+__pycache__
+*.pyc
+# data/videos/*.mp4
+data/output/*
+# models/*.pt
