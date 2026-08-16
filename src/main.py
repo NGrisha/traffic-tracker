@@ -18,7 +18,7 @@ conf = float(os.getenv("YOLO_CONF", "0.3"))
 
 # video_number = max(videos_num, default=0) + 1
 
-video_number = 2
+video_number = 1
 LIVE_CAMERA = False
 
 if LIVE_CAMERA:

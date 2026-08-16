@@ -8,11 +8,11 @@ Features:
 - Tracking history and output video saving
 
 Quick start:
-By default, the application processes the sample video: `data/videos/traffic_2.mp4`
+By default, the application processes the sample video: `data/videos/traffic_1.mp4`
 python src/main.py
 
 Demo
 A pre-generated example is available:
-`data/output/traffic_1_output.mp4`
+`data/output/traffic_2_output.mp4`
 Demo tracking history:
-`data/output/history_1.json`
+`data/output/history_2.json`
