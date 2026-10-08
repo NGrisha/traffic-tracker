@@ -1,0 +1,18 @@
+Backend: ONNX, Device: cpu, FPS: 15.24, Frames: 500, Avg Latency (ms): 65.60
+Backend: PyTorch, Device: cpu, FPS: 19.13, Frames: 500, Avg Latency (ms): 52.28
+Backend: ONNX, Device: 0, FPS: 61.31, Frames: 500, Avg Latency (ms): 16.31
+Backend: PyTorch, Device: 0, FPS: 76.45, Frames: 500, Avg Latency (ms): 13.08
+Backend: TensoRT, Device: 0, FPS: 108.09, Frames: 500, Avg Latency (ms): 9.25
+
+Device 0: NVIDIA GeForce GTX 1650 with Max-Q Design 
+
+
+Tested on **NVIDIA GeForce GTX 1650 Max-Q**, 500 frames.
+
+| Backend  | Device | FPS    | Avg Latency (ms) |
+|----------|--------|--------|------------------|
+| PyTorch  | CPU    | 19.13  | 52.28            |
+| ONNX     | CPU    | 15.24  | 65.60            |
+| PyTorch  | GPU    | 76.45  | 13.08            |
+| ONNX     | GPU    | 61.31  | 16.31            |
+| TensorRT | GPU    | 108.09 | 9.25             |

@@ -3,15 +3,18 @@ from structures import Detection
 
 
 class Detector:
-    def __init__(self, model_path: str = "models/yolo11n.pt", conf: float = 0.51):
+    def __init__(self, model_path: str = "models/yolo11n.pt", conf: float = 0.51, device=None):
         self.conf = conf
         self.model = YOLO(model_path)
         self.class_names = self.model.names
+        self.device = device
 
     def detect(self, frame):
         result = self.model(frame,
                             conf=self.conf,
-                            verbose=False,)
+                            verbose=False,
+                            device=self.device,
+                            )
         detections = []
         result = result[0]
         for box in result.boxes:

@@ -4,3 +4,6 @@ supervision==0.29.1
 ultralytics==8.4.107
 # torch>=2.0.0
 # torchvision>=0.15.0
+# onnx onnxruntime onnxslim
+# nvidia-modelopt[onnx]>=0.44
+# onnxruntime-gpu[cuda,cudnn]==1.22.0 # exec before python -m pip uninstall onnxruntime -y
