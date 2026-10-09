@@ -1,6 +1,6 @@
-from structures import TrackedObjects
+from src.structures import TrackedObjects
 import supervision as sv
-from utils import detections_to_supervision, supervision_to_tracked_objects
+from src.utils import detections_to_supervision, supervision_to_tracked_objects
 
 class Tracker:
 

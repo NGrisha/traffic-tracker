@@ -1,5 +1,5 @@
 import cv2 
-from detector import Detector
+from src.detector import Detector
 import time
 import torch
 # import pandas as pd

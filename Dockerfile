@@ -1,4 +1,5 @@
-FROM python:3.11-slim
+# FROM python:3.11-slim
+FROM nvcr.io/nvidia/tensorrt:24.12-py3
 
 WORKDIR /app
 
@@ -10,12 +11,15 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 COPY requirements.txt .
 
-RUN pip install --no-cache-dir \
-    torch torchvision \
-    --index-url https://download.pytorch.org/whl/cpu
+# RUN pip install --no-cache-dir \
+#     torch torchvision \
+#     --index-url https://download.pytorch.org/whl/cpu
+# RUN python3 -m pip install --no-cache-dir \
+#     torch torchvision \
+#     --index-url https://download.pytorch.org/whl/cu126
 
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-CMD ["python", "-m", "src.main"]
+CMD ["python", "-u", "-m", "src.main"]

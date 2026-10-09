@@ -1,8 +1,8 @@
 import cv2
-from detector import Detector
-from tracker import Tracker
-from visualizer import Visualizer
-from utils import save_history_to_json
+from src.detector import Detector
+from src.tracker import Tracker
+from src.visualizer import Visualizer
+from src.utils import save_history_to_json
 import os
 import json
 # import re
@@ -30,7 +30,9 @@ else:
 HISTORY_CENTER_PATH = f"data/output/history_{video_number}.json"
 VIDEO_OUTPUT_PATH = f"data/output/traffic_{video_number}_output.mp4"
 
-detector = Detector(conf=conf)
+# detector = Detector(conf=conf, device="cpu", model_path="models/yolo11n.pt")
+detector = Detector(conf=conf, device=0, model_path="models/yolo11n.engine")
+# detector = Detector(conf=conf, device=0, model_path="models/yolo11n_win.engine")
 tracker = Tracker()
 visualizer = Visualizer()
 
@@ -72,20 +74,16 @@ def main():
         out.write(frame)
 
 
-        
-        cv2.imshow("Traffic Tracker", frame)
-        
+        # cv2.imshow("Traffic Tracker", frame)
 
+        # key = cv2.waitKey(1)
 
-        key = cv2.waitKey(1)
-
-        if key == ord("q"):
-            save_history_to_json(
-            tracker.history,
-            HISTORY_CENTER_PATH
-        )
-            
-            break
+        # if key == ord("q"):
+        #     save_history_to_json(
+        #     tracker.history,
+        #     HISTORY_CENTER_PATH
+        # )
+        #     break
 
     save_history_to_json(
     tracker.history,
@@ -93,6 +91,9 @@ def main():
     
     cap.release()
     out.release()
+
+    print(f"Processing completed successfully. Output video saved to: {VIDEO_OUTPUT_PATH}")
+              
     cv2.destroyAllWindows()
 
 

@@ -1,5 +1,5 @@
 from ultralytics import YOLO
-from structures import Detection
+from src.structures import Detection
 
 
 class Detector:

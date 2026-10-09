@@ -1,6 +1,6 @@
 import numpy as np
 import supervision as sv
-from structures import TrackedObjects
+from src.structures import TrackedObjects
 import json
 
 def detections_to_supervision(detections):

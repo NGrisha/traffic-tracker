@@ -31,11 +31,36 @@ By default, the application processes the sample video:
 data/videos/traffic_1.mp4
 ```
 
-Run:
+### Run with Docker
+
+Build the Docker image and start the application:
 
 ```bash
-python src/main.py
+docker compose up --build
 ```
+
+The application uses the TensorRT engine and NVIDIA GPU. The processed video and tracking history are saved to the `data/output/` directory.
+
+To stop the application, press `Ctrl+C`.
+
+### Run locally (without Docker)
+
+Run the application from the project root:
+
+```bash
+python -m src.main
+```
+
+Before running locally, update the following lines in `src/main.py`:
+
+* **Line 34:** Comment out the Docker-specific TensorRT engine configuration.
+* **Line 35:** Uncomment the local model configuration.
+* **Lines 77–86:** Uncomment the visualization code to display the video processing in a window.
+
+Make sure the required Python dependencies are installed and use a model compatible with your local environment.
+
+The processed video and tracking history are saved to the `data/output/` directory.
+
 
 ## Demo
 
