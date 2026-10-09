@@ -23,44 +23,31 @@ Tested on **NVIDIA GeForce GTX 1650 Max-Q** using 500 frames.
 | ONNX     | GPU    | 61.31  |            16.31 |
 | TensorRT | GPU    | 108.09 |             9.25 |
 
-## Quick Start
+### Quick Start
 
-By default, the application processes the sample video:
+By default, the application processes `data/videos/traffic_1.mp4` using the Linux TensorRT engine for GPU inference (line 34 in `src/main.py`).
 
-```text
-data/videos/traffic_1.mp4
-```
-
-### Run with Docker
-
-Build the Docker image and start the application:
+**Run with Docker:**
 
 ```bash
 docker compose up --build
 ```
 
-The application uses the TensorRT engine and NVIDIA GPU. The processed video and tracking history are saved to the `data/output/` directory.
-
-To stop the application, press `Ctrl+C`.
-
-### Run locally (without Docker)
-
-Run the application from the project root:
+**Run locally:**
 
 ```bash
 python -m src.main
 ```
 
-Before running locally, update the following lines in `src/main.py`:
+To use a different configuration, uncomment the corresponding line in `src/main.py` and comment out the others:
 
-* **Line 34:** Comment out the Docker-specific TensorRT engine configuration.
-* **Line 35:** Uncomment the local model configuration.
-* **Lines 77–86:** Uncomment the visualization code to display the video processing in a window.
+* **CPU:** line 33 — `models/yolo11n.pt`
+* **Linux / Docker (GPU):** line 34 — `models/yolo11n.engine` *(default)*
+* **Windows (GPU):** line 35 — `models/yolo11n_win.engine`
 
-Make sure the required Python dependencies are installed and use a model compatible with your local environment.
+To display video processing in a window, uncomment lines 77–86.
 
-The processed video and tracking history are saved to the `data/output/` directory.
-
+Output videos and tracking history are saved to `data/output/`.
 
 ## Demo
 

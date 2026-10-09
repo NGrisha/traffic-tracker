@@ -30,9 +30,9 @@ else:
 HISTORY_CENTER_PATH = f"data/output/history_{video_number}.json"
 VIDEO_OUTPUT_PATH = f"data/output/traffic_{video_number}_output.mp4"
 
-# detector = Detector(conf=conf, device="cpu", model_path="models/yolo11n.pt")
-detector = Detector(conf=conf, device=0, model_path="models/yolo11n.engine")
-# detector = Detector(conf=conf, device=0, model_path="models/yolo11n_win.engine")
+# detector = Detector(conf=conf, device="cpu", model_path="models/yolo11n.pt")      # cpu device 
+detector = Detector(conf=conf, device=0, model_path="models/yolo11n.engine")        # linux engine for GPU
+# detector = Detector(conf=conf, device=0, model_path="models/yolo11n_win.engine")  # windows engine for GPU
 tracker = Tracker()
 visualizer = Visualizer()
 
